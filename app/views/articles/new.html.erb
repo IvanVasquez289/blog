@@ -1,0 +1,30 @@
+<h1>Nuevo articulo</h1>
+
+<% if @article.errors.any? %>
+  <h2>Los siguientes errores no permiten que el articulo sea guardado</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg%>
+      </li>
+    <% end%>
+  </ul>
+<% end %>
+
+<%# en url va articles path porque enviaremos los datos a /articles que es donde se listan todos  %>
+<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+  <p>
+    <%= f.label :titulo %>
+    <br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :descripcion %>
+    <br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<%end%>

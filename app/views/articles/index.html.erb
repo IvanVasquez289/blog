@@ -1,0 +1,19 @@
+<h1>Listado de articulos</h1>
+
+<table>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+
+    <% @articles.each do |article| %>
+      <tr>
+        <td> <%= article.title %> </td> 
+        <td> <%= article.description %> </td>
+        <td>  eliminar </td>
+        <td>  eliminar </td>
+        <td>  eliminar </td>
+      </tr>
+    <% end %>
+</table>
