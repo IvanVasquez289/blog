@@ -11,9 +11,11 @@
       <tr>
         <td> <%= article.title %> </td> 
         <td> <%= article.description %> </td>
-        <td>  eliminar </td>
-        <td>  eliminar </td>
-        <td>  eliminar </td>
+        <td>  <%= link_to "Mostrar", article_path(article) %> | </td>
+        <td>  <%= link_to "Editar", edit_article_path(article) %> | </td>
+        <td>  <%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: 'Estas seguro?' } %>  </td>
       </tr>
     <% end %>
 </table>
+
+<p><%= link_to "Crear articulo", new_article_path() %> </p>

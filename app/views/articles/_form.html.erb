@@ -1,0 +1,27 @@
+<% if @article.errors.any? %>
+  <h2>Los siguientes errores no permiten que el articulo sea guardado</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg%>
+      </li>
+    <% end%>
+  </ul>
+<% end %>
+
+<%= form_with(model: @article, local: true) do |f| %>
+  <p>
+    <%= f.label :titulo %>
+    <br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :descripcion %>
+    <br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<%end%>

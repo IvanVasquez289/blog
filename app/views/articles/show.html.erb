@@ -1,3 +1,7 @@
 <h1>Mostrando detalles del articulo</h1>
 <p><strong>Titulo:</strong> <%= @article.title  %> </p>
 <p><strong>Descripcion: </strong>  <%=@article.description%> </p>
+
+<%= link_to "Editar", edit_article_path(@article) %> |
+<%= link_to "Eliminar", article_path(@article), method: :delete, data: { confirm: 'Estas seguro?' } %> |
+<%= link_to "Regresar", articles_path()%>
