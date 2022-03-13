@@ -7,3 +7,38 @@
 .nav-link{
     color: white !important;
 }
+
+#logo{
+    float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.fondo{
+    background-image: url(/assets/no.jpg); 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 425px;
+}
+
+body {
+  margin: 0;
+  background-color: lightgrey;
+  position: relative;
+  padding-bottom: 2.5em;
+  min-height: 100vh;
+}
+
+
+
+.footer {
+    padding: 1em 0;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
