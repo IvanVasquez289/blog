@@ -1,0 +1,18 @@
+<% if @article.errors.any? %>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading">Los siguientes errores no permiten que el articulo sea guardado</h4>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li>
+              <%= msg%>
+            </li>
+          <% end%>
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <%# <h2>Los siguientes errores no permiten que el articulo sea guardado</h2> %>
+<% end %>
