@@ -45,3 +45,14 @@ body {
     position: absolute;
     bottom: 0;
 }
+
+.myname:hover{
+  color: #4ECDC4 !important;
+  transition: all .5s ease;
+}
+
+@media screen and (max-width:500px){
+    .fondo{
+        height: 475px;
+    }
+}
