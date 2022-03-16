@@ -1,13 +1,16 @@
 @import "bootstrap";
 
-.navbar{
-    background-color: black !important;
-}
+// .navbar{
+//     background-color: black !important;
+// }
 
 .nav-link{
     color: white !important;
 }
 
+.navbar-toggler{
+    color: #fff;
+}
 #logo{
     float: left;
   font-size: 1.7em;
