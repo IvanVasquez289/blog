@@ -1,7 +1,21 @@
-<h1>Mostrando detalles del articulo</h1>
-<p><strong>Titulo:</strong> <%= @article.title  %> </p>
-<p><strong>Descripcion: </strong>  <%=@article.description%> </p>
-
-<%= link_to "Editar", edit_article_path(@article) %> |
-<%= link_to "Eliminar", article_path(@article), method: :delete, data: { confirm: 'Estas seguro?' } %> |
-<%= link_to "Regresar", articles_path()%>
+<h2 class="text-center mb-4 mt-4"><%= @article.title %></h2>  
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8 mb-5">
+      <div class="card text-center shadow bg-body rounded">
+        <div class="card-header fst-italic">
+          By Ivan Vasquez
+        </div>
+        <div class="card-body">
+          <div class="card-text text-start"><%= simple_format(@article.description) %></div>    
+          <%= link_to "Regresar", articles_path(), class: "btn btn-outline-warning"%>
+          <%= link_to "Editar", edit_article_path(@article), class: "btn btn-outline-info"%>
+          <%= link_to "Eliminar", article_path(@article), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-outline-danger" %>
+        </div>
+        <div class="card-footer text-muted">
+          <small> Creado hace <%= time_ago_in_words(@article.created_at) %> , editado hace <%= time_ago_in_words(@article.updated_at) %> </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
