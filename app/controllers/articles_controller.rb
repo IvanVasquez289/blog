@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
       # render plain: @article.inspect
       # redirect_to article_path(@article), es una manera mas larga de escribirlo, esto es el show, esto te manda a un article basado en id
       @article = Article.new(article_params)
+      @article.user = User.first
       if @article.save
         flash[:notice] = "El articulo se creo correctamente."
         redirect_to @article
