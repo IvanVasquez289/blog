@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <h4 class="alert-heading">Los siguientes errores no permiten que el articulo sea guardado</h4>
+        <h4 class="alert-heading">Los siguientes errores no permiten que el <%= obj.class.name.downcase %> sea guardado</h4>
         <ul>
           <% obj.errors.full_messages.each do |msg| %>
             <li>
