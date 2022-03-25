@@ -1,29 +1,6 @@
 <h2 class="text-center mb-4 mt-4">Listado de articulos</h2>
 
-<div class="container">
-  <% @articles.each do |article| %>
-  <div class="row justify-content-center">
-    <div class="col-md-8 mb-5">
-      <div class="card text-center shadow bg-body rounded">
-        <div class="card-header fst-italic">
-          <%# By Ivan Vasquez %>
-          By <%= article.user.username if article.user%>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"> <%= link_to article.title, article_path(article), class: "text-success"%> </h5>
-          <p class="card-text"><%= truncate(article.description, length: 100 )  %></p>
-          <%= link_to "Ver", article_path(article), class: "btn btn-outline-success"%>
-          <%= link_to "Editar", edit_article_path(article), class: "btn btn-outline-info"%>
-          <%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-outline-danger" %>
-        </div>
-        <div class="card-footer text-muted">
-          <small> Creado hace <%= time_ago_in_words(article.created_at) %> , editado hace <%= time_ago_in_words(article.updated_at) %> </small>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
+<%= render 'article' %>
 
 
 <%# le quite las comillas de ruby %>
@@ -49,4 +26,4 @@
   </tbody>
 </table> %>
 
-<%# <p><%= link_to "Crear articulo", new_article_path() %> </p>
+<%# <p><%= link_to "Crear articulo", new_article_path() %> 
