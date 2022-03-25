@@ -1,0 +1,25 @@
+<h2 class="text-center mb-4 mt-4">Alpha Bloggers</h2>
+
+<div class="container">
+  <% @users.each do |user| %>
+  <div class="row justify-content-center">
+    <div class="col-md-8 mb-5">
+      <div class="card text-center shadow bg-body rounded">
+        <div class="card-header fst-italic text-primary">
+          <%# By Ivan Vasquez %>
+          By <%= user.username%>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> <%= gravatar_for user, size:150 %> </h5>
+          <p class="card-text"> <%= pluralize(user.articles.count, "articulo") %></p>
+          <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
+          <%= link_to "Editar perfil", edit_user_path(user), class: "btn btn-outline-info"%>
+        </div>
+        <div class="card-footer text-muted">
+          <small> Se unió hace <%= time_ago_in_words(user.created_at) %>  </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
