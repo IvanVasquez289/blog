@@ -25,7 +25,7 @@
         </div>
 
         <div>
-          <%= f.submit "Registrarte", class:"btn btn-outline-light btn-lg"%>
+          <%= f.submit(@user.new_record? ? "Registrarte" : "Actualizar cuenta", class:"btn btn-outline-light btn-lg")%>
         </div>
       <%end%>
     </div>
