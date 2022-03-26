@@ -1,7 +1,16 @@
 <h2 class="text-center mb-4 mt-4">Listado de articulos</h2>
 
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<%# aqui lo renderizamos porque esto lista los articulos, y lo reciclamos con users, para 
+que liste sus usuarios igual, solo que como en users es la vista show, en show method de users creamos la instancia articles %>
 <%= render 'article' %>
 
+<div class="flickr_pagination mb-5">
+  <%= will_paginate @articles, :container => false %>
+</div>
 
 <%# le quite las comillas de ruby %>
 <%# <table>
