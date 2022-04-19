@@ -16,8 +16,15 @@
         <div class="card-body">
           <h5 class="card-title"> <%= gravatar_for user, size:150 %> </h5>
           <p class="card-text"> <%= pluralize(user.articles.count, "articulo") %></p>
-          <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
-          <%= link_to "Editar perfil", edit_user_path(user), class: "btn btn-outline-info"%>
+          
+          <% if logged_in? && current_user == user %>
+            <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
+            <%= link_to "Editar perfil", edit_user_path(user), class: "btn btn-outline-info"%>
+          <% else %>
+            <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
+          <% end %>
+          
+
         </div>
         <div class="card-footer text-muted">
           <small> Se unió hace <%= time_ago_in_words(user.created_at) %>  </small>

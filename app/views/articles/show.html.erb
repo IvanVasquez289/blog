@@ -9,10 +9,17 @@
           <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
         </div>
         <div class="card-body">
-          <div class="card-text text-start"><%= simple_format(@article.description) %></div>    
-          <%= link_to "Regresar", articles_path(), class: "btn btn-outline-warning"%>
-          <%= link_to "Editar", edit_article_path(@article), class: "btn btn-outline-info"%>
-          <%= link_to "Eliminar", article_path(@article), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-outline-danger" %>
+          <div class="card-text text-start"><%= simple_format(@article.description) %></div>  
+          
+          <% if logged_in? && current_user == @article.user %>
+            <%= link_to "Regresar", articles_path(), class: "btn btn-outline-warning"%>
+            <%= link_to "Editar", edit_article_path(@article), class: "btn btn-outline-info"%>
+            <%= link_to "Eliminar", article_path(@article), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-outline-danger" %>
+          <% else %>
+            <%= link_to "Regresar", articles_path(), class: "btn btn-outline-warning"%>
+          
+          <% end %>
+            
         </div>
         <div class="card-footer text-muted">
           <small> Creado hace <%= time_ago_in_words(@article.created_at) %> , editado hace <%= time_ago_in_words(@article.updated_at) %> </small>

@@ -1,6 +1,10 @@
 <h2 class="text-center mb-4 mt-4">Perfil de <%= @user.username %></h2>  
 <%= gravatar_for @user, size:200 %>
-<div class="text-center mb-4 mt-4"> <%= link_to 'Editar tu perfil', edit_user_path(@user), class:"btn btn-outline-primary" %> </div>  
+
+<% if logged_in? && current_user == @user %>
+  <div class="text-center mb-4 mt-4"> <%= link_to 'Editar tu perfil', edit_user_path(@user), class:"btn btn-outline-primary" %> </div>     
+<% end %>
+
 <h3 class="text-center mb-4 mt-4">Articulos</h3>  
 
 <%# este paso de la paginacion es de los ultimos %>

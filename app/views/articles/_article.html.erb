@@ -14,9 +14,16 @@
         <div class="card-body">
           <h5 class="card-title"> <%= link_to article.title, article_path(article), class: "text-success"%> </h5>
           <p class="card-text"><%= truncate(article.description, length: 100 )  %></p>
-          <%= link_to "Ver", article_path(article), class: "btn btn-outline-success"%>
-          <%= link_to "Editar", edit_article_path(article), class: "btn btn-outline-info"%>
-          <%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-outline-danger" %>
+          
+          <% if logged_in? && current_user == article.user %>
+            <%= link_to "Ver", article_path(article), class: "btn btn-outline-success"%>
+            <%= link_to "Editar", edit_article_path(article), class: "btn btn-outline-info"%>
+            <%= link_to "Eliminar", article_path(article), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-outline-danger" %>
+          <% else %>
+            <%= link_to "Ver", article_path(article), class: "btn btn-outline-success"%>  
+          <% end %>
+          
+       
         </div>
         <div class="card-footer text-muted">
           <small> Creado hace <%= time_ago_in_words(article.created_at) %> , editado hace <%= time_ago_in_words(article.updated_at) %> </small>
