@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  def require_user
+    if !logged_in? 
+      flash[:notice] = "Debes iniciar sesion para acceder a esta funcion"
+      redirect_to login_path
+    end
+  end
+
+  
 end
