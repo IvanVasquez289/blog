@@ -56,6 +56,7 @@ class ArticlesController < ApplicationController
   
     @article.destroy
     redirect_to articles_path
+    flash[:notice] = 'El articulo fue eliminado exitosamente'
     # if @article.destroy
     #   flash[:success] = 'Object was successfully deleted.'
     #   redirect_to articles_path
