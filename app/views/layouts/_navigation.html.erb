@@ -34,7 +34,7 @@
             <% if logged_in? %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Perfil [<%= current_user.username %>]
+                  <%= '(Admin)' if current_user.admin? %> Perfil [<%= current_user.username %>]
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "Ver perfil", user_path(current_user), class:"dropdown-item"  %>

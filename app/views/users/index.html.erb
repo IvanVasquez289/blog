@@ -17,11 +17,18 @@
           <h5 class="card-title"> <%= gravatar_for user, size:150 %> </h5>
           <p class="card-text"> <%= pluralize(user.articles.count, "articulo") %></p>
           
-          <% if logged_in? && current_user == user %>
-            <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
-            <%= link_to "Editar perfil", edit_user_path(user), class: "btn btn-outline-info"%>
-          <% else %>
-            <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
+          <%= link_to "Ver perfil", user_path(user), class: "btn btn-outline-success"%>
+          <% if logged_in?%>
+            
+            <% if current_user == user %>
+              <%= link_to "Editar perfil", edit_user_path(user), class: "btn btn-outline-info"%>
+            <% end %>
+            
+            <% if current_user.admin? %>
+              <%= link_to "Eliminar perfil", user_path(user), class:"btn btn-outline-danger" ,method: :delete, 
+                  data: { confirm: 'Estas seguro que quieres eliminar la cuenta del usuario y todos sus articulos relacionados?' } %>
+            <% end %>
+            
           <% end %>
           
 
