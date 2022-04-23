@@ -38,8 +38,8 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "Ver perfil", user_path(current_user), class:"dropdown-item"  %>
-                  <li><hr class="dropdown-divider"></li>
                   <%= link_to "Editar perfil", edit_user_path(current_user), class:"dropdown-item"  %>
+                  <%= link_to "Eliminar perfil", user_path(current_user), class:"dropdown-item text-danger" ,method: :delete, data: { confirm: 'Estas seguro?' } %>
                 </ul>
               </li>
               <li class="nav-item">
