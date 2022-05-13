@@ -17,6 +17,21 @@
           </div>
         </div>
 
+        <div class="row mb-3">
+          <%= f.label :categoria , class:"col-sm-2 col-form-label text-light fw-bold" %>
+
+          <%# <div class="col-10">
+            <%= f.collection_select(:category_ids, Category.all, :id, :name, {:prompt => "Haga su seleccion de la lista de abajo (opcional) "}, 
+            {:multiple => true, size:3,class: 'form-select form-control shadow rounded'}) %>
+          <%# div %>
+          
+          <div class="col-10  my-auto">
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+              <% cb.label(class: "form-check-label input_checkbox") {cb.check_box(class: "checkbox form-check-input mx-3") + cb.text } %>
+            <% end %>
+          </div>
+        </div>
+
         <div>
           <%= f.submit class:"btn btn-outline-light btn-lg"%>
         </div>
