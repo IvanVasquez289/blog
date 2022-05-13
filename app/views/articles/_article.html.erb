@@ -9,6 +9,9 @@
           <% if article.user %>
             By <%= link_to article.user.username, user_path(article.user) %>  
           <% end %>
+          <div class="mt-2">
+            <%= render article.categories %>
+          </div>
           
         </div>
         <div class="card-body">

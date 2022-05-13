@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
       # @article.save
       # render plain: @article.inspect
       # redirect_to article_path(@article), es una manera mas larga de escribirlo, esto es el show, esto te manda a un article basado en id
-      byebug
+      # byebug
       @article = Article.new(article_params)
       # antes era @article.user = User.first 
       @article.user = current_user
